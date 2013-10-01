@@ -6,9 +6,27 @@
 //
 //
 
-#ifndef __ImageParticles__Particle__
-#define __ImageParticles__Particle__
+#pragma once
 
-#include <iostream>
+#include "ofMain.h"
 
-#endif /* defined(__ImageParticles__Particle__) */
+class Particle {
+public:
+    Particle();
+    
+    void update();
+    void draw();
+    
+    void setParams( float px, float py, float vx, float vy );
+    void addForce( ofVec2f force );
+    void addDampingForce();
+    void resetForces();
+    
+    ofImage particleImage;
+    
+    ofVec2f pos;
+    ofVec2f vel;
+    ofVec2f frc;
+    
+    ofVec2f damping;
+};
